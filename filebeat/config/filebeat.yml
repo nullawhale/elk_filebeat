@@ -1,0 +1,19 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /usr/share/logs/*.log
+
+output.elasticsearch:
+  enabled: true
+  hosts: ["elasticsearch:9200"]
+  username: elastic
+  password: changeme
+
+logging.to_files: true
+
+## X-Pack security credentials
+#
+xpack.monitoring.enabled: true
+xpack.monitoring.elasticsearch.username: elastic
+xpack.monitoring.elasticsearch.password: changeme
