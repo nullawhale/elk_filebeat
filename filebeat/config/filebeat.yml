@@ -1,8 +1,8 @@
-filebeat.inputs:
-  - type: log
+filebeat.prospectors:
+  - input_type: log
     enabled: true
     paths:
-      - /usr/share/logs/*.log
+      - /usr/share/filebeat/logs/*.log
 
 output.elasticsearch:
   enabled: true
