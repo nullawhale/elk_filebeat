@@ -3,6 +3,14 @@ filebeat.inputs:
     enabled: true
     paths:
       - /usr/share/logs/*.log
+    multiline.pattern: ^\{
+    multiline.negate: true
+    multiline.match: after
+
+processors:
+ - decode_json_fields:
+     fields: ["message"]
+     target: json
 
 output.elasticsearch:
   enabled: true
